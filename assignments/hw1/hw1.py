@@ -13,7 +13,6 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 """
 
-
 def calc_rec_area():
     length = eval(input("Enter the length: "))
     width = eval(input("Enter the width: "))
@@ -32,7 +31,7 @@ def calc_volume():
 def shooting_percentage():
     total_shots = eval(input("Enter the player's total shots: "))
     made_shots = eval(input("Enter how many shots the player made: "))
-    percent_shots_made_str = str(100*(made_shots/total_shots)) + '%'
+    percent_shots_made_str = str(100 * (made_shots / total_shots)) + '%'
     print("Shooting Percentage: ", percent_shots_made_str)
 
 
