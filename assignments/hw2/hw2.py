@@ -17,7 +17,7 @@ def sum_of_threes():
     iterated_integer = int()
     for i in range(upper_bound // 3):
         iterated_integer += 3 * (i+1)
-    print("sum of threes is", iterated_integer)z
+    print("sum of threes is", iterated_integer)
 
 
 # This code works. The test fails. The test is not properly formatted, I think.
