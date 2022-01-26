@@ -2,8 +2,8 @@
 Name: Brendan Kratt
 hw2.py
 
-Problem: This program defines a number of mathematical functions. All feature input, calculation, and output.
-         Most feature iteration as well.
+Problem: This program defines a number of mathematical functions.
+        All feature input, calculation, and output. Most feature iteration as well.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
@@ -26,8 +26,7 @@ def multiplication_table():
     string_builder = ""
     for current_line_number in range(1, 11):
         for i in range(10):
-            calculation = str((i+1) * current_line_number)
-            string_builder += calculation + "\t"
+            string_builder += str((i+1) * current_line_number) + "\t"
         print(string_builder)
         string_builder = ""
 
@@ -46,7 +45,7 @@ def sum_squares():
     upper_range = eval(input("Enter upper range: "))
     sum_holder = int()
     for i in range(lower_range, upper_range+1):
-        sum_holder += i ** 2
+        sum_holder += i * i
     print(sum_holder)
 
 
