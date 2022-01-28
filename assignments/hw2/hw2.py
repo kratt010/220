@@ -20,13 +20,11 @@ def sum_of_threes():
     print("sum of threes is", iterated_integer)
 
 
-# This code works. The test fails. The test is not properly formatted, I think.
-
 def multiplication_table():
     string_builder = ""
     for current_line_number in range(1, 11):
-        for i in range(10):
-            string_builder += str((i+1) * current_line_number) + "\t"
+        for i in range(1, 11):
+            string_builder += str((i * current_line_number) + "\t")
         print(string_builder)
         string_builder = ""
 
@@ -52,10 +50,10 @@ def sum_squares():
 def power():
     base = eval(input("Enter base: "))
     exponent = eval(input("Enter exponent: "))
-    iterated_base = base
+    resultant_power = base
     for i in range(exponent-1):
-        iterated_base *= base
-    print(base, '^', exponent, '=', iterated_base)
+        resultant_power *= base
+    print(base, '^', exponent, '=', resultant_power)
 
 
 if __name__ == '__main__':
