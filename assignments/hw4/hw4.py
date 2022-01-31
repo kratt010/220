@@ -46,7 +46,6 @@ def squares():
     Text(Point(200, 200), "Click again to close").draw(win)
     win.getMouse()
     win.close()
-squares()
 
 
 def rectangle():
@@ -70,11 +69,10 @@ def rectangle():
     Text(Point(200, 200), "Click again to close").draw(win)
     win.getMouse()
     win.close()
-rectangle()
 
 
 def circle():
-
+    pass
 
 
 def pi2():
