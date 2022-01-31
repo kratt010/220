@@ -28,25 +28,28 @@ def squares():
     instructions.draw(win)
 
     # builds a circle
-    shape = Circle(Point(50, 50), 20)
+    shape = Rectangle(Point(50, 50), Point(100,100))
     shape.setOutline("red")
     shape.setFill("red")
     shape.draw(win)
-
+    new_shape = shape
     # allows the user to click multiple times to move the circle
     for i in range(num_clicks):
+
         click = win.getMouse()
         center = shape.getCenter()  # center of circle
-
-        # move amount is distance from center of circle to the
-        # point where the user clicked
         change_x = click.getX() - center.getX()
         change_y = click.getY() - center.getY()
-        shape.move(change_x, change_y)
+        new_p1 = Point(new_shape.getP1().getX() - change_x, new_shape.getP1().getY() - change_y)
+        new_p2 = Point(new_shape.getP2().getX() - change_x, new_shape.getP2().getY()- change_y)
+        new_shape = Rectangle(new_p1, new_p2)
+        new_shape.setOutline("red")
+        new_shape.setFill("red")
+        new_shape.draw(win)
 
     win.getMouse()
     win.close()
-
+squares()
 
 def rectangle():
     pass
