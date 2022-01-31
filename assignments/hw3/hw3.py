@@ -2,8 +2,8 @@
 Name: Brendan Kratt
 hw3.py
 
-Problem: This program defines a variety of situational functions. All functions take input, store values,
-         perform some sort of calculation, and then release an output. Some functions are mathematical,
+Problem: This program defines a variety of situational functions. All take input, store values,
+         perform some sort of calculation, and then release output. Some functions are mathematical,
          some are related to work uses, however all utilize the for loop.
 
 Certification of Authenticity:
@@ -13,45 +13,44 @@ I certify that this assignment is entirely my own work.
 
 def average():
     num_grades = eval(input("how many grades will you enter? "))
-    grades_lst = []
+    grades_sum = 0.0
     for i in range(num_grades):
-        grades_lst.append(eval(input("Enter grade: ")))
-    print("average is", (sum(grades_lst) / len(grades_lst)))
+        grades_sum += eval(input("Enter grade: "))
+    print("average is", grades_sum / num_grades)
 
 
 def tip_jar():
-    tip_bal = []
+    tip_bal = 0.0
     for i in range(5):
-        tip_bal.append(eval(input("how much would you like to donate? ")))
-    print("total tips:", sum(tip_bal))
+        tip_bal += eval(input("how much would you like to donate? "))
+    print("total tips:", tip_bal)
 
 
 def newton():
-    radicand = eval(input("What number do you want to square root? "))
-    iterations = eval(input("How many times should we improve the approximation? "))
-    approx = radicand
-    for i in range(iterations):
-        approx = (approx+radicand/approx)/2
-    print("the square root is approximately", approx)
+    orig_radicand = eval(input("What number do you want to square root? "))
+    iter_amt = eval(input("How many times should we improve the approximation? "))
+    working_approx = orig_radicand
+    for i in range(iter_amt):
+        working_approx = (working_approx + orig_radicand / working_approx) / 2
+    print("the square root is approximately", working_approx)
 
 
 def sequence():
     num_terms = eval(input("how many terms would you like? "))
+    builder_var = ''
     for i in range(1, num_terms+1):
-        print(i - (1 - i % 2))  # If i even, print i minus 1. Odd, print i.
+        builder_var += str(i - (1 - i % 2)) + ' '  # If i even, equals i minus 1. Odd, equals i.
+    print(builder_var)
 
 
 def pi():
-    list_terms = []
     num_terms = eval(input("how many terms in the series? "))
+    builder_val = 2  # initial value 2, since the equation is for pi/2, not pi
     for i in range(2, num_terms+2):
         denom_value = i - (1 - i % 2)  # if i even, denom_values equals i minus 1. Else, equals i.
-        num_value = i - (i % 2)  # If i odd, num_value equals i minus 1. Else, equals i.
-        list_terms.append(num_value/denom_value)
-    pi_value = 1
-    for term in list_terms:
-        pi_value *= term
-    print(pi_value * 2)
+        num_value = i - (i % 2)        # If i odd, num_value equals i minus 1. Else, equals i.
+        builder_val *= (num_value/denom_value)
+    print(builder_val)
 
 
 if __name__ == '__main__':
