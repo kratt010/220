@@ -2,7 +2,9 @@
 Name: Brendan Kratt
 hw3.py
 
-Problem: <Brief description of the problem that this program solves>
+Problem: This program defines a variety of situational functions. All functions take input, store values,
+         perform some sort of calculation, and then release an output. Some functions are mathematical,
+         some are related to work uses, however all utilize the for loop.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
