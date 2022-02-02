@@ -2,9 +2,11 @@
 Name: Brendan Kratt
 hw3.py
 
-Problem: This program defines a variety of situational functions. All take input, store values,
-         perform some sort of calculation, and then release output. Some functions are mathematical,
-         some are related to work uses, however all utilize the for loop.
+Problem: This program defines a variety of situational functions. All functions take input,
+         store values, perform some sort of calculation, and then release an output.
+         Some functions are mathematical, some are related to work uses, however all utilize
+         the for loop.
+
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
@@ -37,20 +39,20 @@ def newton():
 
 def sequence():
     num_terms = eval(input("how many terms would you like? "))
-    builder_var = ''
+    seq_iter_val = ''
     for i in range(1, num_terms+1):
-        builder_var += str(i - (1 - i % 2)) + ' '  # If i even, equals i minus 1. Odd, equals i.
-    print(builder_var)
+        seq_iter_val += str(i - (1 - i % 2)) + ' '  # If i even, equals i minus 1. Odd, equals i.
+    print(seq_iter_val)
 
 
 def pi():
     num_terms = eval(input("how many terms in the series? "))
-    builder_val = 2  # initial value 2, since the equation is for pi/2, not pi
+    iter_val_pi = 2  # initial value 2, since the given equation was for pi/2, not pi
     for i in range(2, num_terms+2):
         denom_value = i - (1 - i % 2)  # if i even, denom_values equals i minus 1. Else, equals i.
         num_value = i - (i % 2)        # If i odd, num_value equals i minus 1. Else, equals i.
-        builder_val *= (num_value/denom_value)
-    print(builder_val)
+        iter_val_pi *= (num_value/denom_value)
+    print(iter_val_pi)
 
 
 if __name__ == '__main__':
