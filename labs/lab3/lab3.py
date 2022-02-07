@@ -1,3 +1,12 @@
+"""
+Name: Brendan Kratt
+lab3.py
+
+Problem: This program analyzes traffic patterns using simple accumulators and calculations.
+
+Certification of Authenticity:
+I certify that this assignment is entirely my own work.
+"""
 num_roads = eval(input("How many roads were surveyed? "))
 total_num_cars = 0
 for i in range(1, num_roads + 1):
