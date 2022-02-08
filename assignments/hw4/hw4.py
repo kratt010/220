@@ -36,14 +36,13 @@ def squares():
 
     # for num_clicks number of times, create copies of object shape at mouseclick
     for i in range(num_clicks):
-        new_shape = shape
         click = win.getMouse()
-        center = shape.getCenter()  #
+        center = shape.getCenter()
         change_x = click.getX() - center.getX()
         change_y = click.getY() - center.getY()
-        new_p1 = Point(new_shape.getP1().getX() + change_x, new_shape.getP1().getY() + change_y)
-        new_p2 = Point(new_shape.getP2().getX() + change_x, new_shape.getP2().getY() + change_y)
-        Rectangle(new_p1, new_p2).setOutline("red").setFill("red").draw(win)
+        new_shape = shape.clone()
+        new_shape.move(change_x, change_y)
+        new_shape.draw(win)
     Text(Point(200, 200), "Click again to close").draw(win)
     win.getMouse()
     win.close()
@@ -65,7 +64,7 @@ def rectangle():
 
     # Calculates the length and height of the drawn rectangle
     length_rect = abs(point_1.getX() - point_2.getX())
-    height_rect = abs(point_1.getY()-point_2.getY())
+    height_rect = abs(point_1.getY() - point_2.getY())
 
     # Calculates the perimeter and area
     perim_str_val = str(2 * length_rect + 2 * height_rect)
@@ -97,7 +96,7 @@ def circle():
     x_diff_sqr = (point_circumference.getX() - point_center.getX()) ** 2
     y_diff_sqr = (point_circumference.getY() - point_center.getY()) ** 2
 
-    # Finished calculation with the square root of the sums
+    # Finished distance formula taking the square root of the sum of the sums
     radius = math.sqrt(x_diff_sqr + y_diff_sqr)
 
     # Draws the circle based on previous information
