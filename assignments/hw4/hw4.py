@@ -4,7 +4,8 @@ hw4.py
 
 Problem:
 Defines three functions that use a graphics package to output drawings and calculations based upon
-those drawings. Additionally, a fourth function estimates pi using a loop and the modulus operator.
+those drawings, using mouse input as the determining factor.
+Additionally, a fourth function estimates pi using a loop and the modulus operator.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
@@ -112,6 +113,7 @@ def circle():
     # Waits for input, after received closes
     win.getMouse()
     win.close()
+
 
 def pi2():
     num_terms = eval(input("enter the number of terms to sum: "))
