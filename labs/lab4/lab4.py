@@ -18,6 +18,7 @@ left_pt_sqr = Point(width / 2 - sqr_corner_offset, height / 2)
 right_pt_sqr = Point(width / 2 + sqr_corner_offset, height / 2)
 btm_pt_sqr = Point(width / 2, height / 2 + sqr_corner_offset)
 
+# Draws a square rotated 45 degrees at the center of the window
 heart_sqr = Polygon(top_pt_sqr, left_pt_sqr, btm_pt_sqr, right_pt_sqr)
 heart_sqr.setFill("Red")
 heart_sqr.setOutline("Red")
@@ -33,6 +34,7 @@ circ1.setFill("Red")
 circ1.setOutline("Red")
 circ1.draw(win)
 
+# Same as above
 right_line = Line(right_pt_sqr, top_pt_sqr)
 circ2_center = right_line.getCenter()
 circ2 = Circle(circ2_center, 35.35)
@@ -50,12 +52,14 @@ arrow_body.setArrow("last")
 
 time.sleep(1)
 
-for i in range(57):
+
+for i in range(57): # moves, loops, and updates the arrow
     time.sleep(0.01)
     arrow_body.undraw()
     arrow_body.draw(win)
     arrow_body.move(5, -5)
 
+time.sleep(0.25)
 msg.undraw()
 msg_txt = "Click anywhere to close!"
 msg = Text(msg_pt, msg_txt)
