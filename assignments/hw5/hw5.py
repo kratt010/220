@@ -1,42 +1,79 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Brendan Kratt
+hw5.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: This program defines a number of functions using variousmethods, slicing being
+         particularly prominent. All deal with both lists and strings.
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
 
 def name_reverse():
-    pass
+    first_last = input("enter a name (first last): ")
+    list_input = first_last.split(" ")
+    last_comma_first = str(list_input[1]) + ", " + str(list_input[0])
+    print(last_comma_first)
 
 
 def company_name():
-    pass
+    company_input = input("enter a domain: ")
+    company_list = company_input.split(".")
+    print(company_list[1])
 
 
 def initials():
-    pass
+    num_students = eval(input("how many students are in the class? "))
+    for i in range(num_students):
+        concat = "what is the name of student " + str(i) + "? "
+        input_name = input(concat)
+        split_lst = input_name.split(" ")
+        initials_str = split_lst[0][0:1] + split_lst[1][0:1]
+        print(initials_str)
 
 
 def names():
-    pass
+    str_lst = input("enter a list of names: ")
+    real_lst = str_lst.split(", ")
+    iter_output = ""
+    for i in real_lst:
+        iter_lst = i.split(" ")
+        initials_str = iter_lst[0][0:1] + iter_lst[1][0:1]
+        iter_output += initials_str + " "
+    print(iter_output)
 
 
 def thirds():
-    pass
+    num_sentences = eval(input("enter the number of sentences: "))
+    builder_str = ""
+    for i in range(1, num_sentences + 1):
+        concat = "enter sentence " + str(i) + ": "
+        curr_sentence = input(concat)
+        builder_str += curr_sentence[::3]
+    print(builder_str)
 
 
 def word_average():
-    pass
+    sent_input = input("enter a sentence: ")
+    lst_words = sent_input.split(" ")
+    avg = float()
+    for i in lst_words:
+        avg += len(i)
+    avg /= len(lst_words)
+    print(avg)
 
 
 def pig_latin():
-    pass
+    sent_input = input("enter a sentence to convert to pig latin: ")
+    wrd_lst = sent_input.split(" ")
+    pig_lst = []
+    for i in wrd_lst:
+        pig_lst.append(i[1:] + i[0] + "ay")
+    output = " ".join(pig_lst)
+    print(output.lower())
+
+
 
 
 if __name__ == '__main__':
