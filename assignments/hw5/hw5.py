@@ -2,7 +2,7 @@
 Name: Brendan Kratt
 hw5.py
 
-Problem: This program defines a number of functions using variousmethods, slicing being
+Problem: This program defines a number of functions using various methods, slicing being
          particularly prominent. All deal with both lists and strings.
 
 Certification of Authenticity:
