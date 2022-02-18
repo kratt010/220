@@ -13,7 +13,7 @@ I certify that this assignment is entirely my own work.
 def name_reverse():
     first_last = input("enter a name (first last): ")
     list_input = first_last.split(" ")
-    last_comma_first = str(list_input[1]) + ", " + str(list_input[0])
+    last_comma_first = list_input[1] + ", " + list_input[0]
     print(last_comma_first)
 
 
@@ -29,19 +29,18 @@ def initials():
         concat = "what is the name of student " + str(i) + "? "
         input_name = input(concat)
         split_lst = input_name.split(" ")
-        initials_str = split_lst[0][0:1] + split_lst[1][0:1]
+        initials_str = split_lst[0][:1] + split_lst[1][:1]
         print(initials_str)
 
 
 def names():
     str_lst = input("enter a list of names: ")
     real_lst = str_lst.split(", ")
-    iter_output = ""
+    initials_str = ""
     for i in real_lst:
         iter_lst = i.split(" ")
-        initials_str = iter_lst[0][0:1] + iter_lst[1][0:1]
-        iter_output += initials_str + " "
-    print(iter_output)
+        initials_str += iter_lst[0][:1] + iter_lst[1][:1] + " "
+    print(initials_str)
 
 
 def thirds():
@@ -57,7 +56,7 @@ def thirds():
 def word_average():
     sent_input = input("enter a sentence: ")
     lst_words = sent_input.split(" ")
-    avg = float()
+    avg = 0
     for i in lst_words:
         avg += len(i)
     avg /= len(lst_words)
@@ -70,10 +69,8 @@ def pig_latin():
     pig_lst = []
     for i in wrd_lst:
         pig_lst.append(i[1:] + i[0] + "ay")
-    output = " ".join(pig_lst)
-    print(output.lower())
-
-
+    output = " ".join(pig_lst).lower()
+    print(output)
 
 
 if __name__ == '__main__':
