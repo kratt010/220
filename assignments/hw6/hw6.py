@@ -2,7 +2,7 @@
 Name: <your name goes here – first and last>
 <ProgramName>.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: <Brief description of the problem that this program solves, in your own words.>
 
 Certification of Authenticity:
 <include one of the following>
@@ -10,26 +10,37 @@ I certify that this assignment is entirely my own work.
 I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 
+from math import pi
 
 def cash_converter():
-    pass
+    num_input = eval(input("enter an integer: "))
+    print("That is ${:.2f})".format(num_input))
 
 
 def encode():
-    pass
+    lst_chrs = list(input("enter a message: "))
+    key = eval(input("enter a key: "))
+    conv_lst = []
+    for i in lst_chrs:
+        conv_lst.append(chr(ord(i) + key))
+    print("".join(conv_lst))
 
 
 def sphere_area(radius):
-    pass
+    area = 4 * pi * radius ** 2
+    return area
 
 
 def sphere_volume(radius):
-    pass
+    vol = 4/3 * pi * radius ** 3
+    return vol
 
 
 def sum_n(number):
-    pass
-
+    iter = 0
+    for i in range(1, number + 1):
+        iter += i
+    return iter
 
 def sum_n_cubes(number):
     pass
