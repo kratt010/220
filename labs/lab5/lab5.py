@@ -49,7 +49,7 @@ def triangle():
     perim_text = Text(perim_pt, "Perimeter: " + str(perim))
     perim_text.draw(win)
 
-    # drwas area
+    # draws area
     area_pt = Point(win_width/2, win_height - 50)
     area_text = Text(area_pt, "Area: " + str(area))
     area_text.draw(win)
