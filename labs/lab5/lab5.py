@@ -16,32 +16,32 @@ def triangle():
     win.setBackground("white")
 
     # collects mouse input, assigns X and Y of each to variables
-    m1 = win.getMouse()
-    m2 = win.getMouse()
-    m3 = win.getMouse()
-    m1_x = m1.getX()
-    m1_y = m1.getY()
-    m2_x = m2.getX()
-    m2_y = m2.getY()
-    m3_x = m3.getX()
-    m3_y = m3.getY()
+    mouse_1 = win.getMouse()
+    mouse_2 = win.getMouse()
+    mouse_3 = win.getMouse()
+    mouse1_x = mouse_1.getX()
+    mouse1_y = mouse_1.getY()
+    mouse2_x = mouse_2.getX()
+    mouse2_y = mouse_2.getY()
+    mouse3_x = mouse_3.getX()
+    mouse3_y = mouse_3.getY()
 
     # calculates perimeter, area
-    dx1 = m1_x - m2_x
-    dy1 = m1_x - m2_x
-    dx2 = m1_x - m3_x
-    dy2 = m1_y - m3_y
-    dx3 = m3_x - m2_x
-    dy3 = m3_y - m2_y
-    a = distance_calc(dx1, dy1)
-    b = distance_calc(dx2, dy2)
-    c = distance_calc(dx3, dy3)
-    perim = a + b + c
+    dx_1 = mouse1_x - mouse2_x
+    dy_1 = mouse1_x - mouse2_x
+    dx_2 = mouse1_x - mouse3_x
+    dy_2 = mouse1_y - mouse3_y
+    dx_3 = mouse3_x - mouse2_x
+    dy_3 = mouse3_y - mouse2_y
+    length_1 = distance_calc(dx_1, dy_1)
+    length_2 = distance_calc(dx_2, dy_2)
+    length_3 = distance_calc(dx_3, dy_3)
+    perim = length_1 + length_2 + length_3
     s = perim / 2
-    area = math.sqrt(abs(s * (s-a) * (s-b) * (s-c)))  # The abs. solves a quirk of the calculation.
+    area = math.sqrt(abs(s * (s-length_1) * (s-length_2) * (s-length_3)))  # The abs. solves a quirk of the calculation.
 
     # draws triangle
-    triang = Polygon(m1,m2,m3)
+    triang = Polygon(mouse_1,mouse_2,mouse_3)
     triang.draw(win)
 
     # draws perimeter
@@ -171,18 +171,19 @@ def process_list():
     print(x)
 
 def another_series():
-    series_1 = [2,4,6]
-    series_2 = []
+    series_1 = [2, 4, 6] # "base" series
+    series_2 = [] # "builder" or "extended" series
     num_terms = eval(input("Enter number of terms to sum: "))
-    for i in range(math.ceil(num_terms / len(series_1))):
-        series_2.extend(series_1)
-    counter = 0
-    series_output_str =  ""
+    extend_times_amt = math.ceil(num_terms / len(series_1)) # finds how many times to extend series
+    for i in range(extend_times_amt):
+        series_2.extend(series_1) # extends list until is as long or longer than num_terms
+    iter_count_amt = 0  # running value of sum
+    series_output_str = ""
     for i in range(num_terms):
         series_output_str += str(series_2[i]) + " "
-        counter += series_2[i]
+        iter_count_amt += series_2[i]
     print(series_output_str)
-    print("sum =", counter)
+    print("sum =", iter_count_amt)
 
 def target():
     # sets up a square window
@@ -194,21 +195,27 @@ def target():
     # defines a common center point of all circles
     circles_pt = Point(win_width/2, win_height/2)
 
-    # defines, colors, and draws all circles
+    # defines, colors, draws all circles
     circ_white = Circle(circles_pt, 125)
     circ_white.setFill("white")
     circ_white.draw(win)
+
     circ_black = Circle(circles_pt, 100)
     circ_black.setFill("black")
     circ_black.draw(win)
+
     circ_blue = Circle(circles_pt, 75)
     circ_blue.setFill("blue")
     circ_blue.draw(win)
+
     circ_red = Circle(circles_pt, 50)
     circ_red.setFill("red")
     circ_red.draw(win)
+
     circ_yellow = Circle(circles_pt, 25)
     circ_yellow.setFill("yellow")
     circ_yellow.draw(win)
+
+    # Waits for mouse input to close
     win.getMouse()
 
