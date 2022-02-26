@@ -9,8 +9,8 @@ Certification of Authenticity:
 I certify that this assignment is entirely my own work.
 I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
-
 from math import pi
+
 
 def cash_converter():
     num_input = eval(input("enter an integer: "))
@@ -37,17 +37,53 @@ def sphere_volume(radius):
 
 
 def sum_n(number):
-    iter = 0
+    sum_output = 0
     for i in range(1, number + 1):
-        iter += i
-    return iter
+        sum_output += i
+    return sum_output
+
 
 def sum_n_cubes(number):
-    pass
+    cube_output = 0
+    for i in range(1, number + 1):
+        cube_output += i ** 3
+    return cube_output
+
+
+
 
 
 def encode_better():
-    pass
+    text_input = input("Text: ")
+    key_input = input("Key: ") * len(text_input)
+    lst_key_ord = []
+    lst_txt_ord = []
+
+    # ordinal list of key input
+    for i in key_input:
+        lst_key_ord.append(ord(i) - 65)
+
+    # ordinal list of text input
+    for i in text_input:
+        lst_txt_ord.append(ord(i) - 65)
+
+    # unformatted addition of ordinals
+    lst_shifted_ord = []
+    for i in range(len(lst_txt_ord)):
+        lst_shifted_ord.append(lst_txt_ord[i] + lst_key_ord[i])
+
+    # formats ordinals
+    final_ord_lst = []
+    for i in range(len(lst_shifted_ord)):
+        conv_ord = lst_shifted_ord[i] % 58
+        final_ord_lst.append(conv_ord)
+
+    # prepares, prints output
+    iter_output = ""
+    for i in final_ord_lst:
+        iter_output += chr(i + 65)
+    print(iter_output)
+
 
 
 if __name__ == '__main__':
