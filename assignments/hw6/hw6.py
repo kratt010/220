@@ -1,13 +1,12 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Brendan Kratt
+hw6.py
 
-Problem: <Brief description of the problem that this program solves, in your own words.>
+Problem: This program defines a number of functions, some relating to string and list methods,
+         others touching onto with the return statement.
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 from math import pi
 
@@ -48,9 +47,6 @@ def sum_n_cubes(number):
     for i in range(1, number + 1):
         cube_output += i ** 3
     return cube_output
-
-
-
 
 
 def encode_better():
