@@ -1,13 +1,12 @@
 """
-Name: <your name goes here – first and last>
-<ProgramName>.py
+Name: Brendan Kratt
+hw7.py
 
-Problem: <Brief, one or two sentence description of the problem that this program solves, in your own words.>
+Problem: This file defines a number of functions that deal with reading, processing, and writing
+         data from files.
 
 Certification of Authenticity:
-<include one of the following>
 I certify that this assignment is entirely my own work.
-I certify that this assignment is my own work, but I discussed it with: <Name(s)>
 """
 from encryption import encode, encode_better
 
