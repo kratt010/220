@@ -57,13 +57,14 @@ def won(guessed):
         return False
     return True
 
-
 def play_graphics(secret_word):
+    # sets up window
     win_width = 550
     win_height = 550
     win = GraphWin("Hangman", win_width, win_height)
     win.setBackground("white")
 
+    # defines, draws gallows. defines (does not draw yet) stick figure parts
     floor_pt1 = Point(win_width / 2 - 100, 400)
     floor_pt2 = Point(win_width / 2 + 50, 400)
     floor = Line(floor_pt1, floor_pt2)
@@ -75,20 +76,20 @@ def play_graphics(secret_word):
     vert_pole.draw(win)
 
     horiz_polept1 = vert_polept2.clone()
-    horiz_polept2 = Point(floor_pt1.getX(), 50)
+    horiz_polept2 = Point(win_width / 2 - 100, 50)
     horiz_pole = Line(horiz_polept1, horiz_polept2)
     horiz_pole.draw(win)
 
-    rope_polept1 = horiz_polept2.clone()
-    rope_polept2 = Point(rope_polept1.getX(), 100)
-    rope_pole = Line(rope_polept1, rope_polept2)
+    rope_pole_pt1 = horiz_polept2.clone()
+    rope_pole_pt2 = Point(win_width / 2 - 100, 100)
+    rope_pole = Line(rope_pole_pt1, rope_pole_pt2)
     rope_pole.draw(win)
 
-    head_center = Point(rope_polept2.getX(), 125)
+    head_center = Point(win_width / 2 - 100, 125)
     head = Circle(head_center, 25)
 
-    body_pt1 = Point(head_center.getX(), 150)
-    body_pt2 = Point(body_pt1.getX(), 250)
+    body_pt1 = Point(win_width / 2 - 100, 150)
+    body_pt2 = Point(win_width / 2 - 100, 250)
     body = Line(body_pt1, body_pt2)
 
     right_leg_pt1 = body_pt2.clone()
@@ -99,7 +100,7 @@ def play_graphics(secret_word):
     left_leg_pt2 = Point(win_width / 2 - 150, 300)
     left_leg = Line(left_leg_pt1, left_leg_pt2)
 
-    right_arm_pt1 = body.getCenter()
+    right_arm_pt1 = Point(win_width / 2 - 100, 200)
     right_arm_pt2 = Point(win_width / 2 - 150, 225)
     right_arm = Line(right_arm_pt1, right_arm_pt2)
 
@@ -107,44 +108,49 @@ def play_graphics(secret_word):
     left_arm_pt2 = Point(win_width / 2 - 50, 225)
     left_arm = Line(left_arm_pt1, left_arm_pt2)
 
+    # defines, draws prompt for entry
     guess_prompt_pt = Point(win_width / 2 - 75, win_height - 75)
     guess_prompt = Text(guess_prompt_pt, "Guess a letter:")
     guess_prompt.draw(win)
 
+    # defines, draws sequence of guessed words (as of now empty)
     guessed_incorrect_str = ""
     guessed_incorrect_pt = Point(450, win_height / 2 - 100)
     guessed_incorrect = Text(guessed_incorrect_pt, guessed_incorrect_str)
     guessed_incorrect.draw(win)
 
-    guess_entry_pt = Point(win_width / 2, guess_prompt_pt.getY())
+    # defines, draws entry box
+    guess_entry_pt = Point(win_width / 2, win_height - 75)
     guess_entry = Entry(guess_entry_pt, 4)
     guess_entry.draw(win)
 
+    # initializes important variables
     guesses_lst = []
     guesses_remain = 6
 
+    # defines, draws dashes, later used to show letters correctly guessed
     guessed_correct = make_hidden_secret(secret_word, guesses_lst)
     guessed_correct_txt_pt = Point(win_width / 2 - 75, win_height - 100)
     guessed_correct_txt = Text(guessed_correct_txt_pt, guessed_correct)
     guessed_correct_txt.draw(win)
-    while guesses_remain >= 0 and not guessed_correct == secret_word:
+    while guesses_remain >= 0 and not guessed_correct == secret_word:  # while not won or lost, loop
 
-        win.getKey()
-        curr_guess = guess_entry.getText()
-        guess_entry.setText("")
+        win.getKey() # freezes for keyboard input
+        curr_guess = guess_entry.getText()  # gets entry value at time of key input
+        guess_entry.setText("")  # resets contents of entry
         guesses_lst.append(curr_guess)
-        if letter_in_secret_word(curr_guess, secret_word):
+        if letter_in_secret_word(curr_guess, secret_word):  # if letter correctly guessed,
             guessed_correct = make_hidden_secret(secret_word, guesses_lst)
             guessed_correct_txt.undraw()
             guessed_correct_txt = Text(guessed_correct_txt_pt, guessed_correct)
             guessed_correct_txt.draw(win)
-        else:
+        else:  # if letter incorrect,
             guesses_remain -= 1
             guessed_incorrect_str += curr_guess + " "
             guessed_incorrect.undraw()
             guessed_incorrect = Text(guessed_incorrect_pt, guessed_incorrect_str)
             guessed_incorrect.draw(win)
-
+            # draws appropriate body part based on guesses left
             if guesses_remain == 5:
                 head.draw(win)
             elif guesses_remain == 4:
@@ -158,24 +164,19 @@ def play_graphics(secret_word):
             elif guesses_remain == 0:
                 left_arm.draw(win)
 
-        # win conditions
-        if guessed_correct.split(" ") == list(secret_word):
+        if guessed_correct.split(" ") == list(secret_word):  # win condition
             end_pt = Point(win_width / 2, 25)
             end = Text(end_pt, "winner!")
             end.draw(win)
             win.getMouse()
-        elif guesses_remain == 0:
+            break
+        elif guesses_remain == 0:  # loss condition
             end_pt = Point(win_width / 2, 25)
             sorry_str = "sorry, you did not win.\n the word was " + secret_word
             end = Text(end_pt, sorry_str)
             end.draw(win)
-            win.getMouse()
-
-
-
-
-
-
+            win.getMouse()  # waits for mouse input before ending
+            break
 
 
 def play_command_line(secret_word):
