@@ -1,7 +1,8 @@
 """
 hw10.py
 
-Problem:
+Problem: This program defines a number of functions relating to while loops and their applications
+         within functions.
 
 Certification of Authenticity:
 I certify that this assignment is entirely my own work.
