@@ -24,8 +24,12 @@ class Button:
         if p1.getX() <= point.getX() <= p2.getX():
             if p1.getY() <= point.getY() <= p2.getY():
                 return True
+            elif p1.getY() >= point.getY() >= p2.getY():
+                return True
         elif p1.getX() >= point.getX() >= p2.getX():
             if p1.getY() >= point.getY() >= p2.getY():
+                return True
+            elif p1.getY() <= point.getY() <= p2.getY():
                 return True
         return False
 
