@@ -59,4 +59,5 @@ def main():
     print("Tests concluded.")
 
 
-main()
+if __name__ == '__main__':
+    main()
